@@ -7,7 +7,7 @@ const TrendyNews: React.FC = () => {
       title: "Exciting Sports News",
       author: "Penulis 1",
       date: "20 Jan 2024",
-      excerpt: "Berita olahraga terbaru yang menarik perhatian banyak orang.",
+      excerpt: "Jadwal pertandingan yang akan datang dan penting untuk diketahui.",
     },
     {
       title: "Upcoming Matches",
@@ -15,6 +15,18 @@ const TrendyNews: React.FC = () => {
       date: "21 Jan 2024",
       excerpt: "Jadwal pertandingan yang akan datang dan penting untuk diketahui.",
     },
+    {
+        title: "Exciting Sports News",
+        author: "Penulis 1",
+        date: "20 Jan 2024",
+        excerpt: "Jadwal pertandingan yang akan datang dan penting untuk diketahui.",
+      },
+      {
+        title: "Exciting Sports News",
+        author: "Penulis 1",
+        date: "20 Jan 2024",
+        excerpt: "Berita olahraga terbaru yang menarik perhatian banyak orang.",
+      },
   ];
 
   return (
