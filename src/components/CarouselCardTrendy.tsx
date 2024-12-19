@@ -9,15 +9,15 @@ interface Props {
 
 const CarouselCardTrendy: React.FC<Props> = ({ title, author, date, excerpt }) => {
   return (
-    <div className="bg-red-700 rounded-lg shadow-md overflow-hidden p-4 max-w-72 min-w-48">
+    <div className="bg-red-700 rounded-lg shadow-md overflow-hidden p-4 flex-shrink-0" style={{ width: '270px', height: '405px' }}>
       {/* Gambar di atas */}
       <img
         src="https://via.placeholder.com/300"
         alt="carousel"
-        className="object-cover aspect-square flex justify-center"
+        className="object-cover w-full h-[60%] flex justify-center"
       />
       {/* Deskripsi di bawah gambar */}
-      <div>
+      <div className="mt-2">
         <p className="text-sm text-gray-500">
           {author} - {date}
         </p>
