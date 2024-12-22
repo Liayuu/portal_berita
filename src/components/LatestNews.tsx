@@ -43,18 +43,19 @@ const LatestNews: React.FC = () => {
 
   return (
     <section className="my-12 px-4 md:px-8">
-      <h2 className="text-2xl font-bold mb-4">Latest News</h2>
-      
+      <div className="flex flex-row justify-between items-center mb-4">
+      <h2 className="text-2xl font-bold">Latest News</h2>
+      <p className="text-lg font-bold underline text-red-700">See More</p>
+        </div>
       {/* Grid utama dengan gambar dan deskripsi */}
-      <div className="flex flex-wrap mb-6">
-        {/* Gambar di kiri */}
-        <img
-          src="https://via.placeholder.com/600"
-          alt="latest"
-          className="w-full md:w-1/3 h-auto object-cover rounded-lg"
-        />
-        
-        {/* Deskripsi di kanan */}
+      <div className="grid grid-cols-2 gap-4 my-12 px-4 w-full h-3/4">
+        <div className="w-full h-full">
+          <img
+            src="https://via.placeholder.com/600"
+            alt="latest"
+            className="w-full h-full object-cover rounded-lg"
+          />
+        </div>
         <div className="p-6 bg-white rounded-lg shadow-md md:w-2/3 mt-4 md:mt-0">
           <p className="text-sm text-gray-500">Penulis Utama - 19 Jan 2024</p>
           <h3 className="text-lg font-semibold mt-1">
@@ -66,7 +67,7 @@ const LatestNews: React.FC = () => {
           </p>
         </div>
       </div>
-
+      
       {/* Carousel dengan Card lainnya */}
       <h3 className="text-xl font-semibold mb-4">More News</h3>
       <div className="flex space-x-4 overflow-x-auto">

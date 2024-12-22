@@ -41,10 +41,13 @@ const TrendyNews: React.FC = () => {
 
   return (
     <section className="my-12 px-4 md:px-8">
-      <h2 className="text-2xl font-bold mb-4">Trendy News</h2>
+      <div className="flex flex-row justify-between items-center mb-4">
+      <h2 className="text-2xl font-bold">Trendy News</h2>
+      <p className="text-lg font-bold underline text-red-700">See More</p>
+        </div>
       <div className="relative">
         {/* Carousel with Cards */}
-        <div className="flex space-x-4 overflow-x-auto scrollbar-hide" ref={scrollRef}>
+        <div className="flex space-x-4 flex-row justify-between items-center" ref={scrollRef}>
           {trendyArticles.map((article, index) => (
             <CarouselCardTrendy
               key={index}
