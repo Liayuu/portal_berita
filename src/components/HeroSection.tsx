@@ -2,7 +2,7 @@ import React from "react";
 
 const HeroSection: React.FC = () => {
   return (
-    <div className="grid grid-cols-1 gap-8 my-12 px-4 md:px-8 lg:grid-cols-3 w-full">
+    <div className="grid grid-cols-1 gap-4 my-12 px-4 md:px-8 lg:grid-cols-3 w-full">
       {/* Card Utama */}
       <div className="lg:col-span-2 overflow-hidden w-full relative">
         <div className="pl-24 w-full h-full">
@@ -28,15 +28,15 @@ const HeroSection: React.FC = () => {
         {[1, 2, 3, 4].map((_, i) => (
           <div key={i} className="flex border rounded-lg overflow-hidden bg-white shadow-md min-h-min">
             {/* Gambar di kiri */}
-            <div className="flex justify-center items-center w-24 lg:w-32 max-h-24 lg:max-h-32 p-2 lg:p-4">
+            <div className="flex justify-center items-center w-24 lg:w-32 max-h-24 lg:max-h-32 p-2">
               <img
-                src="https://via.placeholder.com/120"
+                src="https://plus.unsplash.com/premium_photo-1661964417740-ccecd11af45b?q=80&w=1947&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="gambar"
-                className="object-cover mx-auto"
+                className="object-cover w-full h-full rounded-lg"
               />
             </div>
             {/* Deskripsi di kanan */}
-            <div className="p-2 lg:p-4 flex-1 flex flex-col justify-center items-center">
+            <div className="py-2 lg:py-4 flex-1 flex flex-col justify-center items-center">
               <div>
                 <p className="text-xs lg:text-sm text-gray-500">CNN News - {i % 2 === 0 ? '2 min read' : '5 min read'}</p>
                 <h3 className="font-bold text-sm lg:text-lg mt-1">Judul Artikel {i + 1}</h3>

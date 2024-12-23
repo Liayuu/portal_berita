@@ -9,12 +9,12 @@ interface Props {
 
 const CarouselCardLatest: React.FC<Props> = ({ title, author, date, excerpt }) => {
   return (
-    <div className="flex flex-col w-72 border rounded-lg overflow-hidden bg-white shadow-md p-4">
+    <div className="grid grid-cols-2 w-full rounded-lg overflow-hidden bg-white">
       {/* Gambar di kiri */}
       <img
-        src="https://via.placeholder.com/120"
+        src="https://images.unsplash.com/photo-1602152043142-1d25a6d56a38?q=80&w=1966&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt="carousel"
-        className="w-full h-32 object-cover"
+        className="w-full h-full object-cover flex rounded-lg"
       />
       {/* Deskripsi di kanan */}
       <div className="flex-1 p-4">
