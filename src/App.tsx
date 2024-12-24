@@ -1,22 +1,28 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import HeroSection from "./components/HeroSection";
-import TrendyNews from "./components/TrendyNews";
-import LatestNews from "./components/LatestNews";
-// import PopularVideos from "./components/PopularVideos"; 
-import Footer from "./components/Footer";
+import NewsPage from "./pages/NewsPage";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Root from "./pages/Root";
+import HomePage from "./pages/HomePage";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />
+      },
+      {
+        path: "/read/:id",
+        element: <NewsPage />
+      }
+    ]
+  }
+])
 
 const App: React.FC = () => {
-  return (
-    <div className="font-sans text-gray-800 ">
-      <Navbar />
-      <HeroSection />
-      <TrendyNews />
-      <LatestNews />
-      {/* <PopularVideos /> */}
-      <Footer />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;
