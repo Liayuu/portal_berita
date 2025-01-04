@@ -1,7 +1,5 @@
 // import { NavigateFunction, useNavigate } from "react-router";
 import HeroSection from "../components/HeroSection";
-import LatestNews from "../components/LatestNews";
-import PopularVideos from "../components/PopularVideos";
 import TrendyNews from "../components/TrendyNews";
 import NewsController from "../services/controllers/NewsController";
 import { useEffect } from "react";

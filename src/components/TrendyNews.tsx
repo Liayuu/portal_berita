@@ -26,7 +26,7 @@ const TrendyNews: React.FC<ITrendyNews> = (data: ITrendyNews) => {
               key={article.id}
               title={article.title}
               author={article.writer.name}
-              date={format(article.curration.published_at,"d MMM yyyy HH:mm", {locale: id})}
+              date={format(article.verified_at,"d MMM yyyy HH:mm", {locale: id})}
               desc={article.short_desc}
               image={article.content_url}
             />

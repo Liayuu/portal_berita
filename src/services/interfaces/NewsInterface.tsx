@@ -18,7 +18,8 @@ export interface NewsListDataInterface {
     categories: CategoryNewsInterface;
     writer: NewsWriterInterface;
     tags: Array<NewsTagInterface>;
-    curration: CurrationNewsInterface
+    verified_at: string;
+    // curration: CurrationNewsInterface
 }
 
 export interface CurrationNewsInterface {

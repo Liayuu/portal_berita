@@ -6,7 +6,7 @@ const getHomepageData = createAsyncThunk(
     "news",
     async (param?: NewsParamInterface): Promise<NewsListMainInterface<NewsListInterface>> => {
         return await baseApi
-            .get<NewsListMainInterface<NewsListInterface>>("/news/main", {
+            .get<NewsListMainInterface<NewsListInterface>>("/api/news/home", {
                 params: param
             })
             .then((response) => {

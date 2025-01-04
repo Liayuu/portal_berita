@@ -27,7 +27,7 @@ const HeroSection: React.FC<IHeroSectionProps> = (data: IHeroSectionProps) => {
               <p className="text-gray-700 mb-4 text-sm md:text-base text-ellipsis line-clamp-3 mt-2">
                 {data.mainNews.short_desc}
               </p>
-              <p className="text-gray-500 text-xs md:text-sm">{format(data.mainNews.curration.published_at,"d MMM yyyy HH:mm", {locale: id})}</p>
+              <p className="text-gray-500 text-xs md:text-sm">{format(data.mainNews.verified_at,"d MMM yyyy HH:mm", {locale: id})}</p>
             </div>
           </div>
       </div>
@@ -47,7 +47,7 @@ const HeroSection: React.FC<IHeroSectionProps> = (data: IHeroSectionProps) => {
             {/* Deskripsi di kanan */}
             <div className="py-2 lg:py-4 flex-1 flex flex-col justify-center items-center">
               <div>
-                <p className="text-xs lg:text-sm text-gray-500">{news.writer.name} - {format(data.mainNews.curration.published_at,"d MMM yyyy HH:mm", {locale: id})}</p>
+                <p className="text-xs lg:text-sm text-gray-500">{news.writer.name} - {format(data.mainNews.verified_at,"d MMM yyyy HH:mm", {locale: id})}</p>
                 <h3 className="font-bold text-sm lg:text-lg mt-1">{news.title}</h3>
                 <p className="text-gray-400 text-xs lg:text-sm mt-2">
                   {news.short_desc}
