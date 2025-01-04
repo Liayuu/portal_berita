@@ -1,11 +1,11 @@
-export interface NewsListMainInterface {
+export interface NewsListMainInterface<T> {
     version: string;
     status: string;
     code: number;
     message: string;
     page: number;
     totalResults: number;
-    data: NewsListInterface;
+    data: T;
 }
 
 export interface NewsListDataInterface {
@@ -13,31 +13,47 @@ export interface NewsListDataInterface {
     title: string;
     content_url: string;
     short_desc: string;
-    published_at: string;
     updated_at: string;
     is_main_news: boolean;
-    categories: Array<CategoryNewsInterface>;
+    categories: CategoryNewsInterface;
     writer: NewsWriterInterface;
     tags: Array<NewsTagInterface>;
+    curration: CurrationNewsInterface
+}
+
+export interface CurrationNewsInterface {
+    id: number;
+    currated_by: NewsWriterInterface;
+    currated_at: string;
+    currated_status: string;
+    published_at: string;
+}
+
+export interface SegmentListDataInterface {
+    id: number;
+    name: string;
+    slug: string;
+    news: Array<NewsListDataInterface>;
 }
 
 export interface CategoryNewsInterface {
-    id: string;
+    id: number;
     name: string;
 }
 
 export interface NewsWriterInterface {
-    id: string;
+    id: number;
     name: string;
 }
 
 export interface NewsTagInterface {
-    id: string;
+    id: number;
     name: string;
 }
 
 export interface NewsListInterface {
-    list: Array<NewsListDataInterface>;
+    latest_news: Array<NewsListDataInterface>;
+    segment: Array<SegmentListDataInterface>;
 }
 
 export interface NewsParamInterface {

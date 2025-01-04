@@ -1,13 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ApiProgrssInterface } from "../interfaces/MainInterface";
-import { NewsListMainInterface } from "../interfaces/NewsInterface";
+import { NewsListInterface, NewsListMainInterface } from "../interfaces/NewsInterface";
 import { getHomepageData } from "../thunks/NewsThunk";
 
-const newsInitialState: ApiProgrssInterface<NewsListMainInterface> = {
+const newsInitialState: ApiProgrssInterface<NewsListMainInterface<NewsListInterface>> = {
     isError: false,
     isLoading: false,
     isFulfilled: false,
-    data: {} as NewsListMainInterface
+    data: {} as NewsListMainInterface<NewsListInterface>
 }
 
 const newsSlice = createSlice({
@@ -19,7 +19,7 @@ const newsSlice = createSlice({
             state.isLoading = true;
             state.isFulfilled = false;
         });
-        builder.addCase(getHomepageData.fulfilled, (state, action: PayloadAction<NewsListMainInterface>) => {
+        builder.addCase(getHomepageData.fulfilled, (state, action: PayloadAction<NewsListMainInterface<NewsListInterface>>) => {
             state.isLoading = false;
             state.isFulfilled = true;
             state.data = action.payload;

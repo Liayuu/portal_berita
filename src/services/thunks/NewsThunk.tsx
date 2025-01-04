@@ -1,16 +1,20 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { NewsListMainInterface, NewsParamInterface } from "../interfaces/NewsInterface";
+import { NewsListInterface, NewsListMainInterface, NewsParamInterface } from "../interfaces/NewsInterface";
 import { baseApi } from "../http-commons";
 
 const getHomepageData = createAsyncThunk(
     "news",
-    async (param?: NewsParamInterface): Promise<NewsListMainInterface> => {
+    async (param?: NewsParamInterface): Promise<NewsListMainInterface<NewsListInterface>> => {
         return await baseApi
-            .get<NewsListMainInterface>("/news", {
+            .get<NewsListMainInterface<NewsListInterface>>("/news/main", {
                 params: param
             })
-            .then((response) => response.data)
+            .then((response) => {
+                console.log("tessstt", response.data)
+                return response.data;
+            })
             .catch((error) => {
+                console.log("tessstt error", error)
                 throw error;
             });
     }
