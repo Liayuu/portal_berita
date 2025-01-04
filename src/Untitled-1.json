@@ -1,0 +1,784 @@
+{
+    "version": 3.1,
+    "status": "success",
+    "code": 200,
+    "message": "",
+    "page": 1,
+    "total": 1,
+    "data": {
+        "list": [
+            {
+                "id": "1a2b3c4d5e6f7g8h9i0j",
+                "title": "New Discoveries in Quantum Physics",
+                "content_url": "https://plus.unsplash.com/premium_photo-1690297733164-958ea1f806ab?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "short_desc": "Scientists have made groundbreaking discoveries in the field of quantum physics.",
+                "created_at": "2024-12-25T09:50:49.000Z",
+                "updated_at": "2024-12-28T11:27:50.422Z",
+                "is_main_news": true,
+                "segment": "science",
+                "category": {
+                    "id": 123,
+                    "name": "Science"
+                },
+                "writer": {
+                    "id": 123,
+                    "name": "Mikhail Gyokyresh"
+                },
+                "curration": {
+                    "id": 123,
+                    "currated_by": {
+                        "id": 123,
+                        "name": "Mikhail Gyokyresh"
+                    },
+                    "currated_at": "2024-12-28T11:27:50.422Z",
+                    "currated_status": "approved",
+                    "published_at": "2024-12-28T11:27:50.422Z"
+                },
+                "tags": [
+                    {
+                        "id": 123,
+                        "name": "Physics"
+                    },
+                    {
+                        "id": 124,
+                        "name": "Quantum"
+                    },
+                    {
+                        "id": 125,
+                        "name": "Science"
+                    }
+                ]
+            },
+            {
+                "id": "2b3c4d5e6f7g8h9i0j1a",
+                "title": "Advancements in AI Technology",
+                "content_url": "https://plus.unsplash.com/premium_photo-1701085329566-86a7e5b4c05d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "short_desc": "AI technology continues to evolve, bringing new possibilities and challenges.",
+                "created_at": "2024-12-25T09:50:49.000Z",
+                "updated_at": "2024-12-28T11:27:50.422Z",
+                "is_main_news": true,
+                "segment": "technology",
+                "category": {
+                    "id": 124,
+                    "name": "Technology"
+                },
+                "writer": {
+                    "id": 124,
+                    "name": "Jane Doe"
+                },
+                "curration": {
+                    "id": 123,
+                    "currated_by": {
+                        "id": 123,
+                        "name": "Mikhail Gyokyresh"
+                    },
+                    "currated_at": "2024-12-28T11:27:50.422Z",
+                    "currated_status": "approved",
+                    "published_at": "2024-12-28T11:27:50.422Z"
+                },
+                "tags": [
+                    {
+                        "id": 126,
+                        "name": "AI"
+                    },
+                    {
+                        "id": 127,
+                        "name": "Technology"
+                    }
+                ]
+            },
+            {
+                "id": "3c4d5e6f7g8h9i0j1a2b",
+                "title": "Breakthroughs in Renewable Energy",
+                "content_url": "https://plus.unsplash.com/premium_photo-1679917152411-353fd633e218?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "short_desc": "Renewable energy sources are becoming more efficient and cost-effective.",
+                "created_at": "2024-12-25T09:50:49.000Z",
+                "updated_at": "2024-12-28T11:27:50.422Z",
+                "is_main_news": true,
+                "segment": "environment",
+                "category": {
+                    "id": 125,
+                    "name": "Environment"
+                },
+                "writer": {
+                    "id": 125,
+                    "name": "John Smith"
+                },
+                "curration": {
+                    "id": 123,
+                    "currated_by": {
+                        "id": 123,
+                        "name": "Mikhail Gyokyresh"
+                    },
+                    "currated_at": "2024-12-28T11:27:50.422Z",
+                    "currated_status": "approved",
+                    "published_at": "2024-12-28T11:27:50.422Z"
+                },
+                "tags": [
+                    {
+                        "id": 128,
+                        "name": "Renewable Energy"
+                    },
+                    {
+                        "id": 129,
+                        "name": "Environment"
+                    }
+                ]
+            },
+            {
+                "id": "4d5e6f7g8h9i0j1a2b3c",
+                "title": "Innovations in Healthcare",
+                "content_url": "https://plus.unsplash.com/premium_photo-1673953509975-576678fa6710?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "short_desc": "New technologies are revolutionizing the healthcare industry.",
+                "created_at": "2024-12-25T09:50:49.000Z",
+                "updated_at": "2024-12-28T11:27:50.422Z",
+                "is_main_news": true,
+                "segment": "health",
+                "category": {
+                    "id": 126,
+                    "name": "Health"
+                },
+                "writer": {
+                    "id": 126,
+                    "name": "Alice Johnson"
+                },
+                "curration": {
+                    "id": 123,
+                    "currated_by": {
+                        "id": 123,
+                        "name": "Mikhail Gyokyresh"
+                    },
+                    "currated_at": "2024-12-28T11:27:50.422Z",
+                    "currated_status": "approved",
+                    "published_at": "2024-12-28T11:27:50.422Z"
+                },
+                "tags": [
+                    {
+                        "id": 130,
+                        "name": "Healthcare"
+                    },
+                    {
+                        "id": 131,
+                        "name": "Technology"
+                    }
+                ]
+            },
+            {
+                "id": "5e6f7g8h9i0j1a2b3c4d",
+                "title": "Economic Trends in 2024",
+                "content_url": "https://plus.unsplash.com/premium_photo-1663931932687-c4c2366a5c61?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "short_desc": "An analysis of the major economic trends expected in 2024.",
+                "created_at": "2024-12-25T09:50:49.000Z",
+                "updated_at": "2024-12-28T11:27:50.422Z",
+                "is_main_news": true,
+                "segment": "economy",
+                "category": {
+                    "id": 127,
+                    "name": "Economy"
+                },
+                "writer": {
+                    "id": 127,
+                    "name": "Robert Brown"
+                },
+                "curration": {
+                    "id": 123,
+                    "currated_by": {
+                        "id": 123,
+                        "name": "Mikhail Gyokyresh"
+                    },
+                    "currated_at": "2024-12-28T11:27:50.422Z",
+                    "currated_status": "approved",
+                    "published_at": "2024-12-28T11:27:50.422Z"
+                },
+                "tags": [
+                    {
+                        "id": 132,
+                        "name": "Economy"
+                    },
+                    {
+                        "id": 133,
+                        "name": "Finance"
+                    }
+                ]
+            },
+            {
+                "id": "6f7g8h9i0j1a2b3c4d5e",
+                "title": "Cultural Shifts in Modern Society",
+                "content_url": "https://images.unsplash.com/photo-1732469242390-460fe76efb5d?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "short_desc": "Exploring the cultural shifts that are shaping modern society.",
+                "created_at": "2024-12-25T09:50:49.000Z",
+                "updated_at": "2024-12-28T11:27:50.422Z",
+                "is_main_news": true,
+                "segment": "culture",
+                "category": {
+                    "id": 128,
+                    "name": "Culture"
+                },
+                "writer": {
+                    "id": 128,
+                    "name": "Emily Davis"
+                },
+                "curration": {
+                    "id": 123,
+                    "currated_by": {
+                        "id": 123,
+                        "name": "Mikhail Gyokyresh"
+                    },
+                    "currated_at": "2024-12-28T11:27:50.422Z",
+                    "currated_status": "approved",
+                    "published_at": "2024-12-28T11:27:50.422Z"
+                },
+                "tags": [
+                    {
+                        "id": 134,
+                        "name": "Culture"
+                    },
+                    {
+                        "id": 135,
+                        "name": "Society"
+                    }
+                ]
+            },
+            {
+                "id": "7g8h9i0j1a2b3c4d5e6f",
+                "title": "Political Developments in 2024",
+                "content_url": "https://plus.unsplash.com/premium_photo-1707727284371-90efa80af770?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "short_desc": "A look at the major political developments expected in 2024.",
+                "created_at": "2024-12-25T09:50:49.000Z",
+                "updated_at": "2024-12-28T11:27:50.422Z",
+                "is_main_news": true,
+                "segment": "politics",
+                "category": {
+                    "id": 129,
+                    "name": "Politics"
+                },
+                "writer": {
+                    "id": 129,
+                    "name": "Michael Wilson"
+                },
+                "curration": {
+                    "id": 123,
+                    "currated_by": {
+                        "id": 123,
+                        "name": "Mikhail Gyokyresh"
+                    },
+                    "currated_at": "2024-12-28T11:27:50.422Z",
+                    "currated_status": "approved",
+                    "published_at": "2024-12-28T11:27:50.422Z"
+                },
+                "tags": [
+                    {
+                        "id": 136,
+                        "name": "Politics"
+                    },
+                    {
+                        "id": 137,
+                        "name": "Government"
+                    }
+                ]
+            },
+            {
+                "id": "8h9i0j1a2b3c4d5e6f7g",
+                "title": "Technological Innovations in 2024",
+                "content_url": "https://plus.unsplash.com/premium_photo-1728978926426-18fdb1d00e8a?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "short_desc": "An overview of the most exciting technological innovations expected in 2024.",
+                "created_at": "2024-12-25T09:50:49.000Z",
+                "updated_at": "2024-12-28T11:27:50.422Z",
+                "is_main_news": true,
+                "segment": "technology",
+                "category": {
+                    "id": 124,
+                    "name": "Technology"
+                },
+                "writer": {
+                    "id": 124,
+                    "name": "Jane Doe"
+                },
+                "curration": {
+                    "id": 123,
+                    "currated_by": {
+                        "id": 123,
+                        "name": "Mikhail Gyokyresh"
+                    },
+                    "currated_at": "2024-12-28T11:27:50.422Z",
+                    "currated_status": "approved",
+                    "published_at": "2024-12-28T11:27:50.422Z"
+                },
+                "tags": [
+                    {
+                        "id": 126,
+                        "name": "AI"
+                    },
+                    {
+                        "id": 127,
+                        "name": "Technology"
+                    }
+                ]
+            },
+            {
+                "id": "9i0j1a2b3c4d5e6f7g8h",
+                "title": "Environmental Challenges in 2024",
+                "content_url": "https://images.unsplash.com/photo-1467579424161-6bbc141569d7?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "short_desc": "A discussion on the major environmental challenges we face in 2024.",
+                "created_at": "2024-12-25T09:50:49.000Z",
+                "updated_at": "2024-12-28T11:27:50.422Z",
+                "is_main_news": true,
+                "segment": "environment",
+                "category": {
+                    "id": 125,
+                    "name": "Environment"
+                },
+                "writer": {
+                    "id": 125,
+                    "name": "John Smith"
+                },
+                "curration": {
+                    "id": 123,
+                    "currated_by": {
+                        "id": 123,
+                        "name": "Mikhail Gyokyresh"
+                    },
+                    "currated_at": "2024-12-28T11:27:50.422Z",
+                    "currated_status": "approved",
+                    "published_at": "2024-12-28T11:27:50.422Z"
+                },
+                "tags": [
+                    {
+                        "id": 128,
+                        "name": "Renewable Energy"
+                    },
+                    {
+                        "id": 129,
+                        "name": "Environment"
+                    }
+                ]
+            },
+            {
+                "id": "0j1a2b3c4d5e6f7g8h9i",
+                "title": "Global Economic Outlook for 2024",
+                "content_url": "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "short_desc": "An analysis of the global economic outlook for the upcoming year.",
+                "created_at": "2024-12-25T09:50:49.000Z",
+                "updated_at": "2024-12-28T11:27:50.422Z",
+                "is_main_news": true,
+                "segment": "economy",
+                "category": {
+                    "id": 127,
+                    "name": "Economy"
+                },
+                "writer": {
+                    "id": 127,
+                    "name": "Robert Brown"
+                },
+                "curration": {
+                    "id": 123,
+                    "currated_by": {
+                        "id": 123,
+                        "name": "Mikhail Gyokyresh"
+                    },
+                    "currated_at": "2024-12-28T11:27:50.422Z",
+                    "currated_status": "approved",
+                    "published_at": "2024-12-28T11:27:50.422Z"
+                },
+                "tags": [
+                    {
+                        "id": 132,
+                        "name": "Economy"
+                    },
+                    {
+                        "id": 133,
+                        "name": "Finance"
+                    }
+                ]
+            },
+            {
+                "id": "1k2l3m4n5o6p7q8r9s0t",
+                "title": "Breakthroughs in Genetic Research",
+                "content_url": "https://plus.unsplash.com/premium_photo-1681426647826-34e345bc8a18?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "short_desc": "New advancements in genetic research are paving the way for personalized medicine.",
+                "created_at": "2024-12-25T09:50:49.000Z",
+                "updated_at": "2024-12-28T11:27:50.422Z",
+                "is_main_news": true,
+                "segment": "science",
+                "category": {
+                    "id": 123,
+                    "name": "Science"
+                },
+                "writer": {
+                    "id": 123,
+                    "name": "Mikhail Gyokyresh"
+                },
+                "curration": {
+                    "id": 123,
+                    "currated_by": {
+                        "id": 123,
+                        "name": "Mikhail Gyokyresh"
+                    },
+                    "currated_at": "2024-12-28T11:27:50.422Z",
+                    "currated_status": "approved",
+                    "published_at": "2024-12-28T11:27:50.422Z"
+                },
+                "tags": [
+                    {
+                        "id": 123,
+                        "name": "Genetics"
+                    },
+                    {
+                        "id": 124,
+                        "name": "Research"
+                    },
+                    {
+                        "id": 125,
+                        "name": "Science"
+                    }
+                ]
+            },
+            {
+                "id": "2l3m4n5o6p7q8r9s0t1k",
+                "title": "Innovations in Space Exploration",
+                "content_url": "https://plus.unsplash.com/premium_photo-1719600861186-1527540ab4da?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "short_desc": "Space agencies are making significant strides in exploring the final frontier.",
+                "created_at": "2024-12-25T09:50:49.000Z",
+                "updated_at": "2024-12-28T11:27:50.422Z",
+                "is_main_news": true,
+                "segment": "science",
+                "category": {
+                    "id": 123,
+                    "name": "Science"
+                },
+                "writer": {
+                    "id": 123,
+                    "name": "Mikhail Gyokyresh"
+                },
+                "curration": {
+                    "id": 123,
+                    "currated_by": {
+                        "id": 123,
+                        "name": "Mikhail Gyokyresh"
+                    },
+                    "currated_at": "2024-12-28T11:27:50.422Z",
+                    "currated_status": "approved",
+                    "published_at": "2024-12-28T11:27:50.422Z"
+                },
+                "tags": [
+                    {
+                        "id": 123,
+                        "name": "Space"
+                    },
+                    {
+                        "id": 124,
+                        "name": "Exploration"
+                    },
+                    {
+                        "id": 125,
+                        "name": "Science"
+                    }
+                ]
+            },
+            {
+                "id": "3m4n5o6p7q8r9s0t1k2l",
+                "title": "The Future of Renewable Energy",
+                "content_url": "https://images.unsplash.com/photo-1502637098811-fa9526d2b659?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "short_desc": "Exploring the potential of renewable energy sources to power the world.",
+                "created_at": "2024-12-25T09:50:49.000Z",
+                "updated_at": "2024-12-28T11:27:50.422Z",
+                "is_main_news": true,
+                "segment": "environment",
+                "category": {
+                    "id": 125,
+                    "name": "Environment"
+                },
+                "writer": {
+                    "id": 125,
+                    "name": "John Smith"
+                },
+                "curration": {
+                    "id": 123,
+                    "currated_by": {
+                        "id": 123,
+                        "name": "Mikhail Gyokyresh"
+                    },
+                    "currated_at": "2024-12-28T11:27:50.422Z",
+                    "currated_status": "approved",
+                    "published_at": "2024-12-28T11:27:50.422Z"
+                },
+                "tags": [
+                    {
+                        "id": 128,
+                        "name": "Renewable Energy"
+                    },
+                    {
+                        "id": 129,
+                        "name": "Environment"
+                    }
+                ]
+            },
+            {
+                "id": "4n5o6p7q8r9s0t1k2l3m",
+                "title": "Advances in Medical Technology",
+                "content_url": "https://images.unsplash.com/photo-1599727277757-3f54e54ea618?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "short_desc": "New medical technologies are improving patient outcomes and healthcare efficiency.",
+                "created_at": "2024-12-25T09:50:49.000Z",
+                "updated_at": "2024-12-28T11:27:50.422Z",
+                "is_main_news": true,
+                "segment": "health",
+                "category": {
+                    "id": 126,
+                    "name": "Health"
+                },
+                "writer": {
+                    "id": 126,
+                    "name": "Alice Johnson"
+                },
+                "curration": {
+                    "id": 123,
+                    "currated_by": {
+                        "id": 123,
+                        "name": "Mikhail Gyokyresh"
+                    },
+                    "currated_at": "2024-12-28T11:27:50.422Z",
+                    "currated_status": "approved",
+                    "published_at": "2024-12-28T11:27:50.422Z"
+                },
+                "tags": [
+                    {
+                        "id": 130,
+                        "name": "Healthcare"
+                    },
+                    {
+                        "id": 131,
+                        "name": "Technology"
+                    }
+                ]
+            },
+            {
+                "id": "5o6p7q8r9s0t1k2l3m4n",
+                "title": "Economic Forecast for 2025",
+                "content_url": "https://images.unsplash.com/photo-1683765143175-b6b87a5f8ac3?q=80&w=1844&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "short_desc": "Experts predict the economic trends and challenges for the upcoming year.",
+                "created_at": "2024-12-25T09:50:49.000Z",
+                "updated_at": "2024-12-28T11:27:50.422Z",
+                "is_main_news": true,
+                "segment": "economy",
+                "category": {
+                    "id": 127,
+                    "name": "Economy"
+                },
+                "writer": {
+                    "id": 127,
+                    "name": "Robert Brown"
+                },
+                "curration": {
+                    "id": 123,
+                    "currated_by": {
+                        "id": 123,
+                        "name": "Mikhail Gyokyresh"
+                    },
+                    "currated_at": "2024-12-28T11:27:50.422Z",
+                    "currated_status": "approved",
+                    "published_at": "2024-12-28T11:27:50.422Z"
+                },
+                "tags": [
+                    {
+                        "id": 132,
+                        "name": "Economy"
+                    },
+                    {
+                        "id": 133,
+                        "name": "Finance"
+                    }
+                ]
+            },
+            {
+                "id": "6p7q8r9s0t1k2l3m4n5o",
+                "title": "Cultural Trends in 2025",
+                "content_url": "https://plus.unsplash.com/premium_photo-1723650938482-ac04e1e5cff7?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "short_desc": "An analysis of the cultural trends that will shape society in 2025.",
+                "created_at": "2024-12-25T09:50:49.000Z",
+                "updated_at": "2024-12-28T11:27:50.422Z",
+                "is_main_news": true,
+                "segment": "culture",
+                "category": {
+                    "id": 128,
+                    "name": "Culture"
+                },
+                "writer": {
+                    "id": 128,
+                    "name": "Emily Davis"
+                },
+                "curration": {
+                    "id": 123,
+                    "currated_by": {
+                        "id": 123,
+                        "name": "Mikhail Gyokyresh"
+                    },
+                    "currated_at": "2024-12-28T11:27:50.422Z",
+                    "currated_status": "approved",
+                    "published_at": "2024-12-28T11:27:50.422Z"
+                },
+                "tags": [
+                    {
+                        "id": 134,
+                        "name": "Culture"
+                    },
+                    {
+                        "id": 135,
+                        "name": "Society"
+                    }
+                ]
+            },
+            {
+                "id": "7q8r9s0t1k2l3m4n5o6p",
+                "title": "Political Landscape in 2025",
+                "content_url": "https://images.unsplash.com/photo-1604359896927-0610b7a3a2be?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "short_desc": "A look at the political changes and challenges expected in 2025.",
+                "created_at": "2024-12-25T09:50:49.000Z",
+                "updated_at": "2024-12-28T11:27:50.422Z",
+                "is_main_news": true,
+                "segment": "politics",
+                "category": {
+                    "id": 129,
+                    "name": "Politics"
+                },
+                "writer": {
+                    "id": 129,
+                    "name": "Michael Wilson"
+                },
+                "curration": {
+                    "id": 123,
+                    "currated_by": {
+                        "id": 123,
+                        "name": "Mikhail Gyokyresh"
+                    },
+                    "currated_at": "2024-12-28T11:27:50.422Z",
+                    "currated_status": "approved",
+                    "published_at": "2024-12-28T11:27:50.422Z"
+                },
+                "tags": [
+                    {
+                        "id": 136,
+                        "name": "Politics"
+                    },
+                    {
+                        "id": 137,
+                        "name": "Government"
+                    }
+                ]
+            },
+            {
+                "id": "8r9s0t1k2l3m4n5o6p7q",
+                "title": "Technological Breakthroughs in 2025",
+                "content_url": "https://images.unsplash.com/photo-1604359896927-0610b7a3a2be?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "short_desc": "Highlighting the most significant technological breakthroughs expected in 2025.",
+                "created_at": "2024-12-25T09:50:49.000Z",
+                "updated_at": "2024-12-28T11:27:50.422Z",
+                "is_main_news": true,
+                "segment": "technology",
+                "category": {
+                    "id": 124,
+                    "name": "Technology"
+                },
+                "writer": {
+                    "id": 124,
+                    "name": "Jane Doe"
+                },
+                "curration": {
+                    "id": 123,
+                    "currated_by": {
+                        "id": 123,
+                        "name": "Mikhail Gyokyresh"
+                    },
+                    "currated_at": "2024-12-28T11:27:50.422Z",
+                    "currated_status": "approved",
+                    "published_at": "2024-12-28T11:27:50.422Z"
+                },
+                "tags": [
+                    {
+                        "id": 126,
+                        "name": "AI"
+                    },
+                    {
+                        "id": 127,
+                        "name": "Technology"
+                    }
+                ]
+            },
+            {
+                "id": "9s0t1k2l3m4n5o6p7q8r",
+                "title": "Environmental Policies in 2025",
+                "content_url": "https://images.unsplash.com/photo-1604359896927-0610b7a3a2be?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "short_desc": "Examining the environmental policies that will shape the future.",
+                "created_at": "2024-12-25T09:50:49.000Z",
+                "updated_at": "2024-12-28T11:27:50.422Z",
+                "is_main_news": true,
+                "segment": "environment",
+                "category": {
+                    "id": 125,
+                    "name": "Environment"
+                },
+                "writer": {
+                    "id": 125,
+                    "name": "John Smith"
+                },
+                "curration": {
+                    "id": 123,
+                    "currated_by": {
+                        "id": 123,
+                        "name": "Mikhail Gyokyresh"
+                    },
+                    "currated_at": "2024-12-28T11:27:50.422Z",
+                    "currated_status": "approved",
+                    "published_at": "2024-12-28T11:27:50.422Z"
+                },
+                "tags": [
+                    {
+                        "id": 128,
+                        "name": "Renewable Energy"
+                    },
+                    {
+                        "id": 129,
+                        "name": "Environment"
+                    }
+                ]
+            },
+            {
+                "id": "0t1k2l3m4n5o6p7q8r9s",
+                "title": "Global Economic Predictions for 2025",
+                "content_url": "https://images.unsplash.com/photo-1604359896927-0610b7a3a2be?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "short_desc": "Analyzing the global economic predictions for the upcoming year.",
+                "created_at": "2024-12-25T09:50:49.000Z",
+                "updated_at": "2024-12-28T11:27:50.422Z",
+                "is_main_news": true,
+                "segment": "economy",
+                "category": {
+                    "id": 127,
+                    "name": "Economy"
+                },
+                "writer": {
+                    "id": 127,
+                    "name": "Robert Brown"
+                },
+                "curration": {
+                    "id": 123,
+                    "currated_by": {
+                        "id": 123,
+                        "name": "Mikhail Gyokyresh"
+                    },
+                    "currated_at": "2024-12-28T11:27:50.422Z",
+                    "currated_status": "approved",
+                    "published_at": "2024-12-28T11:27:50.422Z"
+                },
+                "tags": [
+                    {
+                        "id": 132,
+                        "name": "Economy"
+                    },
+                    {
+                        "id": 133,
+                        "name": "Finance"
+                    }
+                ]
+            }
+        ]
+    }
+}

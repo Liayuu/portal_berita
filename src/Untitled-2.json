@@ -1,0 +1,45 @@
+{
+    "version": 3.1,
+    "status": "success",
+    "code": 200,
+    "message": "",
+    "page": 1,
+    "total": 2,
+    "data": {
+        "list": [
+            {
+                "id": 1,
+                "name": "John Doe",
+                "email": "johndoe@gmail.com",
+                "created_at": "2021-01-01 00:00:00",
+                "updated_at": "2021-01-01 00:00:00",
+                "is_edited": false,
+                "is_anonym": false,
+                "profile_img": "https://example.com/profile.jpg",
+                "comment": "Hello, World!"
+            },
+            {
+                "id": 2,
+                "name": "Alex Patel",
+                "email": "alexpatel@gmail.com",
+                "created_at": "2021-01-01 00:00:00",
+                "updated_at": "2021-01-01 00:00:00",
+                "is_edited": true,
+                "is_anonym": false,
+                "profile_img": "https://example.com/profile.jpg",
+                "comment": "Berita macam apa ini? Ga bermanfaat sama sekali"
+            },
+            {
+                "id": 3,
+                "name": "J****ck",
+                "email": "",
+                "created_at": "2021-01-01 00:00:00",
+                "updated_at": "2021-01-01 00:00:00",
+                "is_edited": false,
+                "is_anonym": true,
+                "profile_img": "https://example.com/profile.jpg",
+                "comment": "Hahahaha, mending berhenti aja anda sekolah. Ga bermanfaat sama sekali"
+            }
+        ]
+    }
+}
