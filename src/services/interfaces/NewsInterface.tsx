@@ -30,7 +30,7 @@ export interface CurrationNewsInterface {
     published_at: string;
 }
 
-export interface SegmentListDataInterface {
+export interface SegmentListDataInterface<NewsListDataInterface> {
     id: number;
     name: string;
     slug: string;
@@ -54,7 +54,7 @@ export interface NewsTagInterface {
 
 export interface NewsListInterface {
     latest_news: Array<NewsListDataInterface>;
-    segment: Array<SegmentListDataInterface>;
+    segment: Array<SegmentListDataInterface<NewsListDataInterface>>;
 }
 
 export interface NewsParamInterface {

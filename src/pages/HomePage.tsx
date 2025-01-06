@@ -20,7 +20,7 @@ export default function HomePage() {
       otherNews={controller.mainNews.data.data.latest_news.slice(1)}
     />
     <TrendyNews 
-      news={controller.mainNews.data.data.segment}
+      segments={controller.mainNews.data.data.segment}
     />
     {/* <LatestNews />
     <PopularVideos /> */}

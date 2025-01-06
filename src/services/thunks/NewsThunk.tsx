@@ -10,11 +10,11 @@ const getHomepageData = createAsyncThunk(
                 params: param
             })
             .then((response) => {
-                console.log("tessstt", response.data)
+                // console.log("tessstt", response.data)
                 return response.data;
             })
             .catch((error) => {
-                console.log("tessstt error", error)
+                // console.log("tessstt error", error)
                 throw error;
             });
     }
