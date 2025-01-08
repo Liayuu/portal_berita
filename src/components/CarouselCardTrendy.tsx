@@ -1,5 +1,6 @@
 import React from "react";
 import VideoClip from "./VideoClip";
+import { Link } from "react-router";
 
 interface Props {
   title: string;
@@ -7,11 +8,13 @@ interface Props {
   date: string;
   desc: string;
   image: string;
+  link?: string;
 }
 
-const CarouselCardTrendy: React.FC<Props> = ({ title, author, date, desc, image }) => {
+const CarouselCardTrendy: React.FC<Props> = ({ title, author, date, desc, image, link = "#" }) => {
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden p-4 flex-shrink-0" style={{ width: '270px', height: '405px' }}>
+    <Link to={link} className="flex-shrink-0">
+      <div className="bg-white rounded-lg shadow-lg overflow-hidden p-4 flex-shrink-0" style={{ width: '270px', height: '405px' }}>
       <VideoClip videoId={image} isAutoPlay height="100%"/>
       {/* Gambar di atas */}
       {/* <img
@@ -28,6 +31,7 @@ const CarouselCardTrendy: React.FC<Props> = ({ title, author, date, desc, image 
         <p className="text-gray-400 text-sm mt-2 text-ellipsis line-clamp-3">{desc}</p>
       </div>
     </div>
+    </Link>
   );
 };
 

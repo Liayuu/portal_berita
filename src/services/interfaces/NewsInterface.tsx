@@ -63,3 +63,8 @@ export interface NewsParamInterface {
     tag?: string;
     writer?: string;
 }
+
+export interface NewsDetailInterface {
+    news: NewsListDataInterface;
+    related_news: Array<NewsListDataInterface>;
+}

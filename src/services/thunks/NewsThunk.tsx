@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { NewsListInterface, NewsListMainInterface, NewsParamInterface } from "../interfaces/NewsInterface";
+import { NewsDetailInterface, NewsListInterface, NewsListMainInterface, NewsParamInterface } from "../interfaces/NewsInterface";
 import { baseApi } from "../http-commons";
 
 const getHomepageData = createAsyncThunk(
@@ -10,14 +10,28 @@ const getHomepageData = createAsyncThunk(
                 params: param
             })
             .then((response) => {
-                // console.log("tessstt", response.data)
+                console.log("tessstt", response.data)
                 return response.data;
             })
             .catch((error) => {
-                // console.log("tessstt error", error)
+                console.log("tessstt error", error)
                 throw error;
             });
     }
 )
 
-export { getHomepageData };
+const getNewsDetail = createAsyncThunk(
+    "details",
+    async (newsId: string): Promise<NewsListMainInterface<NewsDetailInterface>> => {
+        return await baseApi
+            .get<NewsListMainInterface<NewsDetailInterface>>(`/api/news/detail/${newsId}`)
+            .then((response) => {
+                return response.data;
+            })
+            .catch((error) => {
+                throw error;
+            });
+    }
+)
+
+export { getHomepageData, getNewsDetail };

@@ -13,7 +13,6 @@ const TrendyNews: React.FC<ITrendyNews> = (data: ITrendyNews) => {
 
   return (
     data.segments.map((segment) => {
-      console.log("Homepage news", segment.news)
       return (
         <section className="my-12 px-4 md:px-8">
         <div className="flex flex-row justify-between items-center mb-4">
@@ -31,6 +30,7 @@ const TrendyNews: React.FC<ITrendyNews> = (data: ITrendyNews) => {
                 date={format(article.verified_at,"d MMM yyyy HH:mm", {locale: id})}
                 desc={article.short_desc}
                 image={article.content_url}
+                link={`/read/${article.id}`}
               />
             ))}
           </div>

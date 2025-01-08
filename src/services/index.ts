@@ -1,11 +1,12 @@
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
-import { newsSlice } from "./slices/NewsSlice";
+import { newsDetailSlice, newsSlice } from "./slices/NewsSlice";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
 
 export const store = configureStore({
     reducer: {
-        newsList: newsSlice.reducer
+        newsList: newsSlice.reducer,
+        newsDetailList: newsDetailSlice.reducer
     },
 });
 
