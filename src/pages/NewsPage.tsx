@@ -3,13 +3,10 @@ import { useParams } from "react-router-dom";
 import NewsController from "../services/controllers/NewsController";
 import { format } from "date-fns";
 import { id } from "date-fns/locale";
-import VideoClip from "../components/VideoClip";
 import CarouselCardTrendy from "../components/CarouselCardTrendy";
 import ReactPlayer from "react-player";
 
 const NewsPage: React.FC = () => {
-  // const [author, setAuthor] = useState("");
-  // const [content, setContent] = useState("");
   const [isExpanded, setIsExpanded] = useState(false);
 
   const controller = NewsController();
@@ -21,28 +18,16 @@ const NewsPage: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    console.log(`get in news detail ${newsId}`);
     if (newsId) {
       controller.fetchDetailNews(newsId);
     }
-  }, [controller.applicationDispatch]);
-
-  // const handleSubmit = (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   setAuthor("");
-  //   setContent("");
-  // };
+  }, [controller.applicationDispatch, newsId]);
 
   return controller.detailNews.isFulfilled ? (
     <div className="w-full h-full flex flex-col">
       <div className="w-full h-full p-10 grid grid-cols-3 gap-3 min-h-max">
         {/* Card 1: News image */}
         <div className="w-full h-full bg-red-400 col-span-2 overflow-hidden">
-          {/* <img
-          src="https://images.unsplash.com/photo-1532634922-8fe0b757fb13?q=80&w=1772&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Berita utama"
-          className="w-full aspect-video object-cover rounded-lg"
-        /> */}
           <ReactPlayer
             width="100%"
             height="100%"
@@ -53,10 +38,6 @@ const NewsPage: React.FC = () => {
             config={{ file: { forceHLS: true } }}
             url={`https://www.youtube.com/watch?v=${controller.detailNews.data.data.news.content_url}`}
           />
-          {/* <VideoClip
-            videoId={controller.detailNews.data.data.news.content_url}
-            height='500px'
-          /> */}
         </div>
         {/* Card 2: News details */}
         <div className="w-full h-full col-span-1 overflow-hidden rounded-lg shadow-lg bg-white p-5 min-h-full">
