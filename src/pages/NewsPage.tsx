@@ -23,6 +23,8 @@ const NewsPage: React.FC = () => {
     }
   }, [controller.applicationDispatch, newsId]);
 
+  const news = controller.detailNews.data.data.news
+
   return controller.detailNews.isFulfilled ? (
     <div className="w-full h-full flex flex-col">
       <div className="w-full h-full p-10 grid grid-cols-3 gap-3 min-h-max">
@@ -36,22 +38,22 @@ const NewsPage: React.FC = () => {
             controls={true}
             muted
             config={{ file: { forceHLS: true } }}
-            url={`https://www.youtube.com/watch?v=${controller.detailNews.data.data.news.content_url}`}
+            url={`https://www.youtube.com/watch?v=${news.content_url}`}
           />
         </div>
         {/* Card 2: News details */}
         <div className="w-full h-full col-span-1 overflow-hidden rounded-lg shadow-lg bg-white p-5 min-h-full">
           <h3 className="text-3xl font-bold">
-            {controller.detailNews.data.data.news.title}
+            {news.title}
           </h3>
           <div className="flex items-start mt-1">
             <p className="text-sm text-gray-800 font-bold">
-              {controller.detailNews.data.data.news.writer.name}
+              {news.writer.name}
             </p>
             <p className="text-sm text-gray-500 font-semibold mx-2"> - </p>
             <p className="text-sm text-gray-500 font-semibold">
               {format(
-                controller.detailNews.data.data.news.verified_at,
+                news.verified_at,
                 "d MMM yyyy HH:mm",
                 { locale: id }
               )}
@@ -60,7 +62,7 @@ const NewsPage: React.FC = () => {
           <div
             className={`text-gray-900 text-md font-sans space-y-5 leading-6 mt-10 text-justify text-ellipsis ${isExpanded ? "" : "line-clamp-3"}`}
           >
-            <p>{controller.detailNews.data.data.news.short_desc}</p>
+            <p>{news.short_desc}</p>
             
           </div>
           <div className="flex justify-center mt-2">
@@ -112,7 +114,7 @@ const NewsPage: React.FC = () => {
           <div className="mb-5">
             <p className="text-gray-700 font-semibold">Tags:</p>
             <div className="flex flex-wrap gap-2 mt-2">
-              {controller.detailNews.data.data.news.tags.map((tag) => (
+              {news.tags.map((tag) => (
                 <span
                   key={tag.id}
                   className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm"
@@ -167,8 +169,8 @@ const NewsPage: React.FC = () => {
         </div>
       </div>
       <div className="flex space-x-4 flex-row justify-between items-center">
-        {Array.isArray(controller.detailNews.data.data.related_news) &&
-          controller.detailNews.data.data.related_news.map((article) => (
+        {Array.isArray(controller.detailNews.data.data.related) &&
+          controller.detailNews.data.data.related.map((article) => (
             <CarouselCardTrendy
               key={article.id}
               title={article.title}
@@ -177,7 +179,7 @@ const NewsPage: React.FC = () => {
                 locale: id,
               })}
               desc={article.short_desc}
-              image={article.content_url}
+              videoThumbnails={controller.getVideoThumbnails(article.content_url)}
               link={`/read/${article.id}`}
             />
           ))}

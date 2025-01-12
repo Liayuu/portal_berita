@@ -58,13 +58,17 @@ export interface NewsListInterface {
 }
 
 export interface NewsParamInterface {
-    page: number;
-    category?: string;
-    tag?: string;
-    writer?: string;
+    page?: number | null;
+    slug?: string | null;
+    tag?: string | null;
+    author?: number | null;
+    limit?: number | null;
+    limitPaginate?: number | null;
+    title?: string | null;
+    id?: string | null;
 }
 
 export interface NewsDetailInterface {
     news: NewsListDataInterface;
-    related_news: Array<NewsListDataInterface>;
+    related: Array<NewsListDataInterface>;
 }

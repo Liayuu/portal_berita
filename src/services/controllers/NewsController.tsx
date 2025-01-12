@@ -1,9 +1,11 @@
-import { getHomepageData, getNewsDetail, useAppDispatch, useAppSelector } from ".."
+import { getHomepageData, getNewsDetail, getSearchNews, useAppDispatch, useAppSelector } from ".."
+import { NewsParamInterface } from "../interfaces/NewsInterface";
 
 export default function NewsController() {
     const applicationDispatch = useAppDispatch();
     const mainNews = useAppSelector((state) => state.newsList);
     const detailNews = useAppSelector((state) => state.newsDetailList);
+    const searchedNews = useAppSelector((state) => state.newsSearch)
 
     const fetchHomepageNews = () => {
         applicationDispatch(
@@ -17,6 +19,21 @@ export default function NewsController() {
         )
     }
 
+    const fetchSearchNews = ({ id, limit, limitPaginate, page, slug, title, author, tag }: NewsParamInterface) => {
+        applicationDispatch(
+            getSearchNews({
+                id,
+                limit,
+                limitPaginate,
+                page,
+                slug,
+                title,
+                author,
+                tag
+            })
+        )
+    }
+
     const getVideoThumbnails = (videoId: string): Array<string> => {
         const videoThumbnails: Array<string> = [];
         for (let i = 0; i < 5; i++) {
@@ -26,5 +43,5 @@ export default function NewsController() {
         return videoThumbnails;
     }
 
-    return { fetchHomepageNews, applicationDispatch, mainNews, fetchDetailNews, detailNews, getVideoThumbnails }
+    return { fetchHomepageNews, applicationDispatch, mainNews, fetchDetailNews, detailNews, getVideoThumbnails, searchedNews, fetchSearchNews }
 }

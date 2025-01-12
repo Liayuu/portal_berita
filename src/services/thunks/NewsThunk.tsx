@@ -1,12 +1,28 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { NewsDetailInterface, NewsListInterface, NewsListMainInterface, NewsParamInterface } from "../interfaces/NewsInterface";
+import { NewsDetailInterface, NewsListDataInterface, NewsListInterface, NewsListMainInterface, NewsParamInterface } from "../interfaces/NewsInterface";
 import { baseApi } from "../http-commons";
 
 const getHomepageData = createAsyncThunk(
     "news",
-    async (param?: NewsParamInterface): Promise<NewsListMainInterface<NewsListInterface>> => {
+    async (): Promise<NewsListMainInterface<NewsListInterface>> => {
         return await baseApi
-            .get<NewsListMainInterface<NewsListInterface>>("/api/news/home", {
+            .get<NewsListMainInterface<NewsListInterface>>("/api/news/home")
+            .then((response) => {
+                console.log("tessstt", response.data)
+                return response.data;
+            })
+            .catch((error) => {
+                console.log("tessstt error", error)
+                throw error;
+            });
+    }
+)
+
+const getSearchNews = createAsyncThunk(
+    "news/search",
+    async (param?: NewsParamInterface): Promise<NewsListMainInterface<Array<NewsListDataInterface>>> => {
+        return await baseApi
+            .get<NewsListMainInterface<Array<NewsListDataInterface>>>("/api/news/home", {
                 params: param
             })
             .then((response) => {
@@ -22,16 +38,20 @@ const getHomepageData = createAsyncThunk(
 
 const getNewsDetail = createAsyncThunk(
     "details",
-    async (newsId: string): Promise<NewsListMainInterface<NewsDetailInterface>> => {
+    async (id: string): Promise<NewsListMainInterface<NewsDetailInterface>> => {
         return await baseApi
-            .get<NewsListMainInterface<NewsDetailInterface>>(`/api/news/detail/${newsId}`)
-            .then((response) => {
-                return response.data;
-            })
-            .catch((error) => {
-                throw error;
-            });
+        .get<NewsListMainInterface<NewsDetailInterface>>("/api/news/home", {
+            params: {id} as NewsParamInterface
+        })
+        .then((response) => {
+            console.log("tessstt", response.data)
+            return response.data;
+        })
+        .catch((error) => {
+            console.log("tessstt error", error)
+            throw error;
+        });
     }
 )
 
-export { getHomepageData, getNewsDetail };
+export { getHomepageData, getNewsDetail, getSearchNews };

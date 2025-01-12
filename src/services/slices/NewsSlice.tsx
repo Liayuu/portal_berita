@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ApiProgrssInterface } from "../interfaces/MainInterface";
-import { NewsDetailInterface, NewsListInterface, NewsListMainInterface } from "../interfaces/NewsInterface";
-import { getHomepageData, getNewsDetail } from "../thunks/NewsThunk";
+import { NewsDetailInterface, NewsListInterface, NewsListMainInterface, NewsListDataInterface } from "../interfaces/NewsInterface";
+import { getHomepageData, getNewsDetail, getSearchNews } from "../thunks/NewsThunk";
 
 const newsInitialState: ApiProgrssInterface<NewsListMainInterface<NewsListInterface>> = {
     isError: false,
@@ -15,6 +15,13 @@ const newsDetailInitialState: ApiProgrssInterface<NewsListMainInterface<NewsDeta
     isLoading: false,
     isFulfilled: false,
     data: {} as NewsListMainInterface<NewsDetailInterface>
+}
+
+const newsSearchInitialState: ApiProgrssInterface<NewsListMainInterface<Array<NewsListDataInterface>>> = {
+    isError: false,
+    isLoading: false,
+    isFulfilled: false,
+    data: {} as NewsListMainInterface<Array<NewsListDataInterface>>
 }
 
 const newsSlice = createSlice({
@@ -59,7 +66,29 @@ const newsDetailSlice = createSlice({
     }
 })
 
-export { newsSlice, newsDetailSlice };
+const newsSearchSlice = createSlice({
+    name: 'news/search',
+    initialState: newsSearchInitialState,
+    reducers: {},
+    extraReducers: (builder) => {
+        builder.addCase(getSearchNews.pending, (state) => {
+            state.isLoading = true;
+            state.isFulfilled = false;
+        });
+        builder.addCase(getSearchNews.fulfilled, (state, action: PayloadAction<NewsListMainInterface<Array<NewsListDataInterface>>>) => {
+            state.isLoading = false;
+            state.isFulfilled = true;
+            state.data = action.payload;
+        });
+        builder.addCase(getSearchNews.rejected, (state) => {
+            state.isLoading = false;
+            state.isError = true;
+        });
+    }
+})
+
+export { newsSlice, newsDetailSlice, newsSearchSlice };
 // export the reducer from a separate file
 export const newsReducer = newsSlice.reducer;
 export const newsDetailReducer = newsDetailSlice.reducer;
+export const newsSearchReducer = newsSearchSlice.reducer;
