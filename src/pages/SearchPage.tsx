@@ -24,8 +24,6 @@ const SearchPage: React.FC = () => {
         });
     }, [controller.applicationDispatch]);
 
-    const newsList = controller.searchedNews.data.data
-
     return (
         controller.searchedNews.isFulfilled ? (
             <div className="font-sans text-gray-800 h-full w-full flex flex-col items-start justify-start">
@@ -35,7 +33,7 @@ const SearchPage: React.FC = () => {
                     </h3>
                 </div>
                 <div className="px-4 justify-between items-center grid grid-cols-2 lg:grid-cols-5 md:grid-cols-3">
-                    {Array.isArray(newsList) && newsList.map((news) => (
+                    {Array.isArray(controller.searchedNews.data.data) && controller.searchedNews.data.data.map((news) => (
                         <CarouselCardTrendy
                             key={news.id}
                             title={news.title}
