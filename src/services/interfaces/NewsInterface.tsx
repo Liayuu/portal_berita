@@ -4,8 +4,14 @@ export interface NewsListMainInterface<T> {
     code: number;
     message: string;
     page: number;
-    totalResults: number;
+    total: number;
+    prev_url?: string;
+    next_url?: string;
     data: T;
+}
+
+export interface NewsSearchListInterface<T> {
+    list: Array<T>
 }
 
 export interface NewsListDataInterface {

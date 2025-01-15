@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ApiProgrssInterface } from "../interfaces/MainInterface";
-import { NewsDetailInterface, NewsListInterface, NewsListMainInterface, NewsListDataInterface } from "../interfaces/NewsInterface";
+import { NewsDetailInterface, NewsListInterface, NewsListMainInterface, NewsListDataInterface, NewsSearchListInterface } from "../interfaces/NewsInterface";
 import { getHomepageData, getNewsDetail, getSearchNews } from "../thunks/NewsThunk";
 
 const newsInitialState: ApiProgrssInterface<NewsListMainInterface<NewsListInterface>> = {
@@ -17,11 +17,11 @@ const newsDetailInitialState: ApiProgrssInterface<NewsListMainInterface<NewsDeta
     data: {} as NewsListMainInterface<NewsDetailInterface>
 }
 
-const newsSearchInitialState: ApiProgrssInterface<NewsListMainInterface<Array<NewsListDataInterface>>> = {
+const newsSearchInitialState: ApiProgrssInterface<NewsListMainInterface<NewsSearchListInterface<NewsListDataInterface>>> = {
     isError: false,
     isLoading: false,
     isFulfilled: false,
-    data: {} as NewsListMainInterface<Array<NewsListDataInterface>>
+    data: {} as NewsListMainInterface<NewsSearchListInterface<NewsListDataInterface>>
 }
 
 const newsSlice = createSlice({
@@ -75,9 +75,10 @@ const newsSearchSlice = createSlice({
             state.isLoading = true;
             state.isFulfilled = false;
         });
-        builder.addCase(getSearchNews.fulfilled, (state, action: PayloadAction<NewsListMainInterface<Array<NewsListDataInterface>>>) => {
+        builder.addCase(getSearchNews.fulfilled, (state, action: PayloadAction<NewsListMainInterface<NewsSearchListInterface<NewsListDataInterface>>>) => {
             state.isLoading = false;
             state.isFulfilled = true;
+            console.log("data",action.payload)
             state.data = action.payload;
         });
         builder.addCase(getSearchNews.rejected, (state) => {
