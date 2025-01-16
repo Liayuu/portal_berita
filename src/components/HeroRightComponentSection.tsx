@@ -1,6 +1,7 @@
 import { format } from "date-fns";
 import { id } from "date-fns/locale";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 interface HeroRightComponentSectionProps {
     newsId: string;
@@ -32,7 +33,7 @@ const HeroRightComponentSection: React.FC<HeroRightComponentSectionProps> = ({ n
     const handleMouseLeave = () => { setIsHovered(false); setCurrentFrame(0); };
 
     return (
-        <div key={newsId} className="grid grid-cols-3 border rounded-lg overflow-hidden bg-white shadow-md mx-2 xl:mx-0 my-2 xl:my-0">
+        <Link key={newsId} className="grid grid-cols-3 border rounded-lg overflow-hidden bg-white shadow-md mx-2 xl:mx-0 my-2 xl:my-0" to={`/read/${newsId}`}>
             {/* Gambar di kiri */}
             <div className="col-span-1 justify-center items-center aspect-auto p-2">
                 <div className="object-cover w-full h-full">
@@ -57,7 +58,7 @@ const HeroRightComponentSection: React.FC<HeroRightComponentSectionProps> = ({ n
                     </p>
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
 

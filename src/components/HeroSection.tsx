@@ -5,6 +5,7 @@ import { id } from "date-fns/locale";
 import ReactPlayer from "react-player";
 import HeroRightComponentSection from "./HeroRightComponentSection";
 import NewsController from "../services/controllers/NewsController";
+import { Link } from "react-router-dom";
 
 interface IHeroSectionProps {
   mainNews: NewsListDataInterface,
@@ -17,7 +18,7 @@ const HeroSection: React.FC<IHeroSectionProps> = (data: IHeroSectionProps) => {
   return (
     <div className="xl:grid gap-4 my-12 px-4 grid-cols-3 w-full h-full">
       {/* Card Utama */}
-      <div className="xl:col-span-2 overflow-hidden w-full h-full flex flex-col aspect-video">
+      <Link to={`/read/${data.mainNews.id}`} className="xl:col-span-2 overflow-hidden w-full h-full flex flex-col aspect-video">
         <div className="w-full h-full flex items-center justify-center bg-orange-600">
           {/* <div className="w-full h-full object-cover items-center justify-center"> */}
           <ReactPlayer
@@ -41,7 +42,7 @@ const HeroSection: React.FC<IHeroSectionProps> = (data: IHeroSectionProps) => {
             <p className="text-gray-500 text-xs md:text-sm">{format(data.mainNews.verified_at, "d MMM yyyy HH:mm", { locale: id })}</p>
           </div>
         </div>
-      </div>
+      </Link>
 
       {/* Card Kedua */}
       <div className="xl:space-y-4 xl:flex-col xl:flex grid grid-cols-2 xl:space-x-0 py-4 xl:py-0 justify-start items-start">

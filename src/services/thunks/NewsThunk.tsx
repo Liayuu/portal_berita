@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { NewsDetailInterface, NewsListDataInterface, NewsListInterface, NewsListMainInterface, NewsParamInterface } from "../interfaces/NewsInterface";
+import { NewsDetailInterface, NewsListDataInterface, NewsListInterface, NewsListMainInterface, NewsParamInterface, NewsSearchListInterface } from "../interfaces/NewsInterface";
 import { baseApi } from "../http-commons";
 
 const getHomepageData = createAsyncThunk(
@@ -20,9 +20,9 @@ const getHomepageData = createAsyncThunk(
 
 const getSearchNews = createAsyncThunk(
     "news/search",
-    async (param?: NewsParamInterface): Promise<NewsListMainInterface<Array<NewsListDataInterface>>> => {
+    async (param?: NewsParamInterface): Promise<NewsListMainInterface<NewsSearchListInterface<NewsListDataInterface>>> => {
         return await baseApi
-            .get<NewsListMainInterface<Array<NewsListDataInterface>>>("/api/news/home", {
+            .get<NewsListMainInterface<NewsSearchListInterface<NewsListDataInterface>>>("/api/news/home", {
                 params: param
             })
             .then((response) => {

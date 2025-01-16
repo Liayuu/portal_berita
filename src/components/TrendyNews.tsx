@@ -37,7 +37,7 @@ const TrendyNews: React.FC<ITrendyNews> = (data: ITrendyNews) => {
         <section className="my-12 px-4 md:px-8">
           <div className="flex flex-row justify-between items-center mb-4">
             <h2 className="text-2xl font-bold">{segment.name}</h2>
-            <p className="text-lg font-bold underline text-red-700">See More</p>
+            <a href={`/search?category=${segment.slug}&page=1`} className="text-lg font-bold underline text-red-700">See More</a>
           </div>
           <div className="flex">
             {/* Carousel with Cards */}

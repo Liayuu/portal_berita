@@ -58,56 +58,57 @@ const NewsPage: React.FC = () => {
             </p>
           </div>
           <div
-            className={`text-gray-900 text-md font-sans space-y-5 leading-6 mt-10 text-justify text-ellipsis ${isExpanded ? "" : "line-clamp-3"}`}
+            className={`text-gray-900 text-md font-sans space-y-5 leading-6 mt-10 text-justify text-ellipsis ${
+              isExpanded ? "" : "line-clamp-3"
+            }`}
           >
             <p>{controller.detailNews.data.data.news.short_desc}</p>
-            
           </div>
           <div className="flex justify-center mt-2">
-              {!isExpanded ? (
-                <button
-                  className="text-red-500 flex items-center space-x-1"
-                  onClick={() => setIsExpanded(true)}
+            {!isExpanded ? (
+              <button
+                className="text-red-500 flex items-center space-x-1"
+                onClick={() => setIsExpanded(true)}
+              >
+                <span>Lihat Selengkapnya</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-4 h-4"
                 >
-                  <span>Lihat Selengkapnya</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-4 h-4"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                    />
-                  </svg>
-                </button>
-              ) : (
-                <button
-                  className="text-red-500 flex items-center space-x-1"
-                  onClick={() => setIsExpanded(false)}
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                  />
+                </svg>
+              </button>
+            ) : (
+              <button
+                className="text-red-500 flex items-center space-x-1"
+                onClick={() => setIsExpanded(false)}
+              >
+                <span>Tampilkan Lebih Sedikit</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-4 h-4"
                 >
-                  <span>Tampilkan Lebih Sedikit</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-4 h-4"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19.5 15.75l-7.5-7.5-7.5 7.5"
-                    />
-                  </svg>
-                </button>
-              )}
-            </div>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19.5 15.75l-7.5-7.5-7.5 7.5"
+                  />
+                </svg>
+              </button>
+            )}
+          </div>
           <hr className="border-t border-gray-400 my-5" />
           <div className="mb-5">
             <p className="text-gray-700 font-semibold">Tags:</p>
@@ -122,51 +123,12 @@ const NewsPage: React.FC = () => {
               ))}
             </div>
           </div>
-          {/* TODO: Comment dibuat jika API ada dan masih cukup waktu */}
-          {/* <form onSubmit={handleSubmit} className="mb-5">
-          <div className="mb-1">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-1"
-              htmlFor="author"
-            >
-              Name
-            </label>
-            <input
-              id="author"
-              type="text"
-              value={author}
-              onChange={(e) => setAuthor(e.target.value)}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="content"
-            >
-              Comment
-            </label>
-            <textarea
-              id="content"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              required
-            />
-          </div>
-          <div className="flex items-center justify-between">
-            <button
-              type="submit"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
-              Add Comment
-            </button>
-          </div>
-        </form> */}
         </div>
       </div>
-      <div className="flex space-x-4 flex-row justify-between items-center">
+      <div className="px-6 flex flex-row justify-between items-center mb-4">
+        <h2 className="text-2xl font-bold">Related News</h2>
+      </div>
+      <div className="px-4 justify-between items-center grid grid-cols-2 lg:grid-cols-5 md:grid-cols-3 pb-8 gap-4">
         {Array.isArray(controller.detailNews.data.data.related) &&
           controller.detailNews.data.data.related.map((article) => (
             <CarouselCardTrendy
@@ -177,7 +139,9 @@ const NewsPage: React.FC = () => {
                 locale: id,
               })}
               desc={article.short_desc}
-              videoThumbnails={controller.getVideoThumbnails(article.content_url)}
+              videoThumbnails={controller.getVideoThumbnails(
+                article.content_url
+              )}
               link={`/read/${article.id}`}
             />
           ))}

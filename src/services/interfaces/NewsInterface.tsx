@@ -2,12 +2,16 @@ export interface NewsListMainInterface<T> {
     version: string;
     status: string;
     code: number;
-    message?: string;
-    page?: number;
-    total?: number;
+    message: string;
+    page: number;
+    total: number;
     prev_url?: string;
     next_url?: string;
     data: T;
+}
+
+export interface NewsSearchListInterface<T> {
+    list: Array<T>
 }
 
 export interface NewsListDataInterface {
