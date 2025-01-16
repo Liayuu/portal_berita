@@ -78,7 +78,21 @@ const newsSearchSlice = createSlice({
         builder.addCase(getSearchNews.fulfilled, (state, action: PayloadAction<NewsListMainInterface<Array<NewsListDataInterface>>>) => {
             state.isLoading = false;
             state.isFulfilled = true;
-            state.data = action.payload;
+            if (state.data.data.length > 0) {
+                state.data.data = [...state.data.data, ...action.payload.data];
+                state.data = {
+                    code: action.payload.code,
+                    data: [...state.data.data, ...action.payload.data],
+                    message: action.payload.message,
+                    page: action.payload.page,
+                    status: action.payload.status,
+                    version: action.payload.version,
+                    prev_url: action.payload.prev_url,
+                    next_url: action.payload.next_url
+                }
+            } else {
+                state.data = action.payload;
+            }
         });
         builder.addCase(getSearchNews.rejected, (state) => {
             state.isLoading = false;

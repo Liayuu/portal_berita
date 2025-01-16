@@ -2,9 +2,11 @@ export interface NewsListMainInterface<T> {
     version: string;
     status: string;
     code: number;
-    message: string;
-    page: number;
-    totalResults: number;
+    message?: string;
+    page?: number;
+    total?: number;
+    prev_url?: string;
+    next_url?: string;
     data: T;
 }
 

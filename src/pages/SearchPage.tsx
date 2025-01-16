@@ -24,30 +24,40 @@ const SearchPage: React.FC = () => {
         });
     }, [controller.applicationDispatch]);
 
-    return (
-        controller.searchedNews.isFulfilled ? (
-            <div className="font-sans text-gray-800 h-full w-full flex flex-col items-start justify-start">
-                <div className="p-16 w-full h-min min-h-min flex justify-center items-center">
-                    <h3 className="text-3xl font-bold">
-                        Hasil Pencarian
-                    </h3>
+    useEffect(() => {
+        
+        return () => {
+            
+        };
+    }, []);
+
+    if (controller.searchedNews.isFulfilled) {
+        const news = controller.searchedNews.data.data
+        return (
+                <div className="font-sans text-gray-800 h-full w-full flex flex-col items-start justify-start">
+                    <div className="p-16 w-full h-min min-h-min flex justify-center items-center">
+                        <h3 className="text-3xl font-bold">
+                            Hasil Pencarian
+                        </h3>
+                    </div>
+                    <div className="px-4 justify-between items-center grid grid-cols-2 lg:grid-cols-5 md:grid-cols-3">
+                        {Array.isArray(news) && news.map((article) => (
+                            <CarouselCardTrendy
+                                key={article.id}
+                                title={article.title}
+                                author={article.writer.name}
+                                date={format(article.verified_at, "d MMM yyyy HH:mm", { locale: id })}
+                                desc={article.short_desc}
+                                videoThumbnails={controller.getVideoThumbnails(article.content_url)}
+                                link={`/read/${article.id}`}
+                            />
+                        ))}
+                    </div>
                 </div>
-                <div className="px-4 justify-between items-center grid grid-cols-2 lg:grid-cols-5 md:grid-cols-3">
-                    {Array.isArray(controller.searchedNews.data.data) && controller.searchedNews.data.data.map((news) => (
-                        <CarouselCardTrendy
-                            key={news.id}
-                            title={news.title}
-                            author={news.writer.name}
-                            date={format(news.verified_at, "d MMM yyyy HH:mm", { locale: id })}
-                            desc={news.short_desc}
-                            videoThumbnails={controller.getVideoThumbnails(news.content_url)}
-                            link={`/read/${news.id}`}
-                        />
-                    ))}
-                </div>
-            </div>
-        ) : (<div></div>)
-    )
+        )
+    } else {
+        return <div>Loading...</div>;
+    }
 }
 
 export default SearchPage
