@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { getHomepageData, getNewsDetail, getSearchNews, useAppDispatch, useAppSelector } from ".."
 import { NewsParamInterface } from "../interfaces/NewsInterface";
 
@@ -7,7 +6,6 @@ export default function NewsController() {
     const mainNews = useAppSelector((state) => state.newsList);
     const detailNews = useAppSelector((state) => state.newsDetailList);
     const searchedNews = useAppSelector((state) => state.newsSearch)
-    const [currentListCount, setcurrentListCount] = useState(0);
 
     const fetchHomepageNews = () => {
         applicationDispatch(
@@ -27,20 +25,13 @@ export default function NewsController() {
                 id,
                 limit,
                 limitPaginate,
-                page,
+                page: !page || page <= 1 ? 1 : page,
                 slug,
                 title,
                 author,
                 tag
             })
-        ).unwrap()
-        .then((payload) => {
-            if (payload.page == 1 && currentListCount > 0) {
-                setcurrentListCount(payload.data.length)
-            } else {
-                setcurrentListCount(payload.data.length + currentListCount)
-            }
-        })
+        )
     }
 
     const getVideoThumbnails = (videoId: string): Array<string> => {
