@@ -1,14 +1,14 @@
 import React, { useCallback, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import NewsController from "../services/controllers/NewsController";
 import CarouselCardTrendy from "../components/CarouselCardTrendy";
 import { format } from "date-fns";
 import { id } from "date-fns/locale";
-import Pagination from "../components/Pagination";
+// import Pagination from "../components/Pagination";
 
 const SearchPage: React.FC = () => {
     const location = useLocation();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const queryParams = new URLSearchParams(location.search);
     const category = queryParams.get("category");
     const author = queryParams.get("author");
@@ -40,7 +40,7 @@ const SearchPage: React.FC = () => {
                     author: author === null ? author : Number(author),
                     title: search,
                     tag: tag,
-                    page: Number(handlePageChange)
+                    page: Number(handleNextPage)
                 })
             }
         }
@@ -48,14 +48,14 @@ const SearchPage: React.FC = () => {
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll)
-        return () => window.removeEventListener("scroll", handleNextPage);
+        return () => window.removeEventListener("scroll", handleScroll);
     }, [controller.applicationDispatch]);
 
-    const handlePageChange = () => {
-        if (controller.searchedNews.data.next_url) {
-            navigate(controller.searchedNews.data.next_url);
-        }
-    }
+    // const handlePageChange = () => {
+    //     if (controller.searchedNews.data.next_url) {
+    //         navigate(controller.searchedNews.data.next_url);
+    //     }
+    // }
 
     return (
         controller.searchedNews.isFulfilled ? (
@@ -80,7 +80,7 @@ const SearchPage: React.FC = () => {
                         ))}
                     </div>
                 ) : null}
-                <Pagination currentPage={controller.searchedNews.data.page} totalPages={controller.searchedNews.data.total} onPageChange={handlePageChange} />
+                {/* <Pagination currentPage={controller.searchedNews.data.page} totalPages={controller.searchedNews.data.total} onPageChange={handlePageChange} /> */}
             </div>
         ) : (<div></div>)
     );
