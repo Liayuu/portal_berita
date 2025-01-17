@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import NewsController from "../services/controllers/NewsController";
 import CarouselCardTrendy from "../components/CarouselCardTrendy";
@@ -28,7 +28,28 @@ const SearchPage: React.FC = () => {
         });
     }, [controller.applicationDispatch, category, author, search, tag, page, location.search]);
 
+    const handleNextPage = (): number => {
+        return controller.searchedNews.data.page + 1
+    }
 
+    const handleScroll = useCallback(() => {
+        if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 50 && !controller.searchedNews.isLoading) {
+            if (controller.searchedNews.isFulfilled && controller.searchedNews.data.page <= controller.searchedNews.data.total) {
+                controller.fetchSearchNews({
+                    slug: category,
+                    author: author === null ? author : Number(author),
+                    title: search,
+                    tag: tag,
+                    page: Number(handlePageChange)
+                })
+            }
+        }
+    }, [])
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll)
+        return () => window.removeEventListener("scroll", handleNextPage);
+    }, [controller.applicationDispatch]);
 
     const handlePageChange = () => {
         if (controller.searchedNews.data.next_url) {
