@@ -41,7 +41,7 @@ const TrendyNews: React.FC<ITrendyNews> = (data: ITrendyNews) => {
           </div>
           <div className="flex">
             {/* Carousel with Cards */}
-            <div className="lg:flex lg:flex-row justify-between items-center grid grid-cols-2" ref={scrollRef}>
+            <div className="lg:grid-cols-5 justify-between items-center grid grid-cols-2" ref={scrollRef}>
               {Array.isArray(segment.news) && segment.news.slice(0, itemsToShow).map((article) => (
                 <CarouselCardTrendy
                   key={article.id}

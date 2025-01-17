@@ -6,6 +6,7 @@ import ReactPlayer from "react-player";
 import HeroRightComponentSection from "./HeroRightComponentSection";
 import NewsController from "../services/controllers/NewsController";
 import { Link } from "react-router-dom";
+import CarouselCardTrendy from "./CarouselCardTrendy";
 
 interface IHeroSectionProps {
   mainNews: NewsListDataInterface,
@@ -18,7 +19,7 @@ const HeroSection: React.FC<IHeroSectionProps> = (data: IHeroSectionProps) => {
   return (
     <div className="xl:grid gap-4 my-12 px-4 grid-cols-3 w-full h-full">
       {/* Card Utama */}
-      <Link to={`/read/${data.mainNews.id}`} className="xl:col-span-2 overflow-hidden w-full h-full flex flex-col aspect-video">
+      <Link to={`/read/${data.mainNews.id}`} className="xl:col-span-2 overflow-hidden w-full h-full flex flex-col xl:aspect-video">
         <div className="w-full h-full flex items-center justify-center bg-orange-600">
           {/* <div className="w-full h-full object-cover items-center justify-center"> */}
           <ReactPlayer
@@ -45,7 +46,7 @@ const HeroSection: React.FC<IHeroSectionProps> = (data: IHeroSectionProps) => {
       </Link>
 
       {/* Card Kedua */}
-      <div className="xl:space-y-4 xl:flex-col xl:flex grid grid-cols-2 xl:space-x-0 py-4 xl:py-0 justify-start items-start">
+      <div className="xl:space-y-4 xl:flex-col xl:flex md:grid md:grid-cols-2 xl:space-x-0 py-4 xl:py-0 justify-start items-start hidden">
         {data.otherNews.map((news) => {
           return (
             <HeroRightComponentSection
@@ -58,33 +59,21 @@ const HeroSection: React.FC<IHeroSectionProps> = (data: IHeroSectionProps) => {
               videoThumbnails={controller.getVideoThumbnails(news.content_url)}
             />
           )
-          // if (index < 3) {
-          //   return (
-          //     <div key={news.id} className="flex border rounded-lg overflow-hidden bg-white shadow-md min-h-min">
-          //       {/* Gambar di kiri */}
-          //       <div className="flex justify-center items-center w-24 lg:w-32 max-h-24 lg:max-h-24 p-2">
-          //         <div className="object-cover w-full h-full">
-          //           <VideoClip videoId={news.content_url} isAutoPlay height="100%" />
-          //         </div>
-          //         {/* <img
-          //           src={news.content_url}
-          //           alt="gambar"
-          //           className="object-cover w-full h-full rounded-lg"
-          //         /> */}
-          //       </div>
-          //       {/* Deskripsi di kanan */}
-          //       <div className="py-2 flex-1 flex flex-col justify-center items-center">
-          //         <div>
-          //           <p className="text-xs lg:text-sm text-gray-500">{news.writer.name} - {format(data.mainNews.verified_at, "d MMM yyyy HH:mm", { locale: id })}</p>
-          //           <h3 className="font-bold text-sm lg:text-lg mt-1 text-ellipsis line-clamp-2">{news.title}</h3>
-          //           <p className="text-gray-400 text-xs lg:text-sm mt-1 text-ellipsis line-clamp-3">
-          //             {news.short_desc}
-          //           </p>
-          //         </div>
-          //       </div>
-          //     </div>
-          //   )
-          // }
+        })}
+      </div>
+      <div className="grid grid-cols-2 justify-between items-center md:hidden">
+        {data.otherNews.map((news) => {
+          return (
+            <CarouselCardTrendy
+              key={news.id}
+              title={news.title}
+              author={news.writer.name}
+              date={format(news.verified_at, "d MMM yyyy HH:mm", { locale: id })}
+              desc={news.short_desc}
+              videoThumbnails={controller.getVideoThumbnails(news.content_url)}
+              link={`/read/${news.id}`}
+            />
+          )
         })}
       </div>
     </div>
