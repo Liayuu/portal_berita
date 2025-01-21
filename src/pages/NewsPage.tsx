@@ -5,28 +5,27 @@ import { format } from "date-fns";
 import { id } from "date-fns/locale";
 import CarouselCardTrendy from "../components/CarouselCardTrendy";
 import ReactPlayer from "react-player";
+import { Link } from "react-router-dom";
 
 const NewsPage: React.FC = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
+  const [isExpanded, setIsExpanded] = useState(false); // Menyimpan status apakah deskripsi berita ditampilkan sepenuhnya
   const controller = NewsController();
-
-  const { newsId } = useParams();
+  const { newsId } = useParams(); // Mendapatkan id berita dari URL
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0); // Mengatur halaman scroll ke atas saat halaman dimuat
   }, []);
 
   useEffect(() => {
     if (newsId) {
-      controller.fetchDetailNews(newsId);
+      controller.fetchDetailNews(newsId); // Mengambil detail berita berdasarkan newsId
     }
-  }, [controller.applicationDispatch, newsId]);
+  }, [controller.applicationDispatch, newsId]); // Mengambil data berita saat newsId atau dispatch berubah
 
-  return controller.detailNews.isFulfilled ? (
+  return controller.detailNews.isFulfilled ? ( // Mengecek apakah data berita telah berhasil dimuat
     <div className="w-full h-full flex flex-col">
       <div className="w-full h-full p-10 grid grid-cols-3 gap-3 min-h-max">
-        {/* Card 1: News image */}
+        {/* Card 1: Menampilkan video berita */}
         <div className="w-full h-full bg-red-400 col-span-2 overflow-hidden">
           <ReactPlayer
             width="100%"
@@ -39,15 +38,19 @@ const NewsPage: React.FC = () => {
             url={`https://www.youtube.com/watch?v=${controller.detailNews.data.data.news.content_url}`}
           />
         </div>
-        {/* Card 2: News details */}
+        {/* Card 2: Menampilkan detail berita */}
         <div className="w-full h-full col-span-1 overflow-hidden rounded-lg shadow-lg bg-white p-5 min-h-full">
           <h3 className="text-3xl font-bold">
             {controller.detailNews.data.data.news.title}
           </h3>
+          {/* Menampilkan nama penulis dan tanggal berita */}
           <div className="flex items-start mt-1">
-            <p className="text-sm text-gray-800 font-bold">
+            <a
+              href={`/search?author=${controller.detailNews.data.data.news.writer.id}&page=1`}
+              className="text-sm text-gray-800 font-bold"
+            >
               {controller.detailNews.data.data.news.writer.name}
-            </p>
+            </a>
             <p className="text-sm text-gray-500 font-semibold mx-2"> - </p>
             <p className="text-sm text-gray-500 font-semibold">
               {format(
@@ -57,6 +60,7 @@ const NewsPage: React.FC = () => {
               )}
             </p>
           </div>
+          {/* Menampilkan deskripsi singkat berita dengan opsi untuk melihat lebih banyak */}
           <div
             className={`text-gray-900 text-md font-sans space-y-5 leading-6 mt-10 text-justify text-ellipsis ${
               isExpanded ? "" : "line-clamp-3"
@@ -64,6 +68,7 @@ const NewsPage: React.FC = () => {
           >
             <p>{controller.detailNews.data.data.news.short_desc}</p>
           </div>
+          {/* Tombol untuk memperluas atau mengecilkan deskripsi */}
           <div className="flex justify-center mt-2">
             {!isExpanded ? (
               <button
@@ -109,22 +114,26 @@ const NewsPage: React.FC = () => {
               </button>
             )}
           </div>
+          {/* Menampilkan tag terkait berita */}
           <hr className="border-t border-gray-400 my-5" />
           <div className="mb-5">
             <p className="text-gray-700 font-semibold">Tags:</p>
             <div className="flex flex-wrap gap-2 mt-2">
               {controller.detailNews.data.data.news.tags.map((tag) => (
-                <span
-                  key={tag.id}
-                  className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm"
-                >
-                  {tag.name}
-                </span>
+                <Link to={`/search?tag=${tag.name}&page=1`}>
+                  <span
+                    key={tag.id}
+                    className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm"
+                  >
+                    {tag.name}
+                  </span>
+                </Link>
               ))}
             </div>
           </div>
         </div>
       </div>
+      {/* Menampilkan berita terkait */}
       <div className="px-6 flex flex-row justify-between items-center mb-4">
         <h2 className="text-2xl font-bold">Related News</h2>
       </div>
@@ -148,7 +157,7 @@ const NewsPage: React.FC = () => {
       </div>
     </div>
   ) : (
-    <div></div>
+    <div></div> // Menampilkan loading kosong jika data belum siap
   );
 };
 

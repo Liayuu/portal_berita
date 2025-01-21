@@ -5,58 +5,62 @@ import { format } from "date-fns";
 import { id } from "date-fns/locale";
 import NewsController from "../services/controllers/NewsController";
 
+// Interface untuk mendefinisikan properti komponen TrendyNews
 interface ITrendyNews {
-  segments: Array<SegmentListDataInterface<NewsListDataInterface>>
+  segments: Array<SegmentListDataInterface<NewsListDataInterface>>; // Daftar segmen dengan data berita
 }
 
 const TrendyNews: React.FC<ITrendyNews> = (data: ITrendyNews) => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [itemsToShow, setItemsToShow] = useState(3);
-  const controller = NewsController();
+  const scrollRef = useRef<HTMLDivElement>(null); // Referensi untuk container carousel
+  const [itemsToShow, setItemsToShow] = useState(3); // Jumlah item yang ditampilkan pada layar
+  const controller = NewsController(); // Instance controller untuk menangani data berita
 
   useEffect(() => {
     const handleResize = () => {
+      // Menyesuaikan jumlah item yang ditampilkan berdasarkan lebar layar
       if (window.innerWidth >= 1280) {
-        setItemsToShow(5);
-      // } else if (window.innerWidth <= 1080) {
-      //   setItemsToShow(4);
-      }else {
-        setItemsToShow(4);
+        setItemsToShow(5); // 5 item untuk layar besar
+      } else {
+        setItemsToShow(4); // 4 item untuk layar kecil
       }
     };
 
-    window.addEventListener('resize', handleResize);
-    handleResize(); // Call initially to set the correct number of items
+    window.addEventListener('resize', handleResize); // Menambahkan event listener untuk resize
+    handleResize(); // Memastikan konfigurasi sesuai ukuran layar saat komponen di-render
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize); // Membersihkan event listener
   }, []);
 
   return (
+    // Melakukan iterasi pada setiap segmen
     data.segments.map((segment) => {
       return (
         <section className="my-12 px-4 md:px-8">
+          {/* Judul segmen dan tautan 'See More' */}
           <div className="flex flex-row justify-between items-center mb-4">
-            <h2 className="text-2xl font-bold">{segment.name}</h2>
-            <a href={`/search?category=${segment.slug}&page=1`} className="text-lg font-bold underline text-red-700">See More</a>
+            <h2 className="text-2xl font-bold text-[#0F1B07]">{segment.name}</h2>
+            <a href={`/search?category=${segment.slug}&page=1`} className="text-lg font-bold underline text-[#0F1B07]">See More</a>
           </div>
+          
+          {/* Container carousel untuk menampilkan berita */}
           <div className="flex">
-            {/* Carousel with Cards */}
             <div className="lg:grid-cols-5 justify-between items-center grid grid-cols-2" ref={scrollRef}>
+              {/* Menampilkan berita dalam jumlah yang sesuai */}
               {Array.isArray(segment.news) && segment.news.slice(0, itemsToShow).map((article) => (
                 <CarouselCardTrendy
-                  key={article.id}
-                  title={article.title}
-                  author={article.writer.name}
-                  date={format(article.verified_at, "d MMM yyyy HH:mm", { locale: id })}
-                  desc={article.short_desc}
-                  videoThumbnails={controller.getVideoThumbnails(article.content_url)}
-                  link={`/read/${article.id}`}
+                  key={article.id} // Key unik untuk setiap berita
+                  title={article.title} // Judul berita
+                  author={article.writer.name} // Nama penulis berita
+                  date={format(article.verified_at, "d MMM yyyy HH:mm", { locale: id })} // Tanggal berita terverifikasi
+                  desc={article.short_desc} // Deskripsi singkat berita
+                  videoThumbnails={controller.getVideoThumbnails(article.content_url)} // Thumbnail video berita
+                  link={`/read/${article.id}`} // Tautan menuju halaman detail berita
                 />
               ))}
             </div>
           </div>
         </section>
-      )
+      );
     })
   );
 };

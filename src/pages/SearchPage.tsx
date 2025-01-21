@@ -4,35 +4,36 @@ import NewsController from "../services/controllers/NewsController";
 import CarouselCardTrendy from "../components/CarouselCardTrendy";
 import { format } from "date-fns";
 import { id } from "date-fns/locale";
-// import Pagination from "../components/Pagination";
+// import Pagination dari komponen Pagination
 
 const SearchPage: React.FC = () => {
-    const location = useLocation();
-    // const navigate = useNavigate();
-    const queryParams = new URLSearchParams(location.search);
-    const category = queryParams.get("category");
-    const author = queryParams.get("author");
-    const search = queryParams.get("search");
-    const tag = queryParams.get("tag");
-    const page = queryParams.get("page");
+    const location = useLocation(); // Mendapatkan lokasi URL saat ini
+    const queryParams = new URLSearchParams(location.search); // Mendapatkan parameter query dari URL
+    const category = queryParams.get("category"); // Kategori berita
+    const author = queryParams.get("author"); // Penulis berita
+    const search = queryParams.get("search"); // Pencarian judul berita
+    const tag = queryParams.get("tag"); // Tag pencarian
+    const page = queryParams.get("page"); // Halaman untuk navigasi
 
-    const controller = NewsController();
+    const controller = NewsController(); // Menggunakan NewsController untuk mengelola data berita
 
     useEffect(() => {
+        // Mengambil data pencarian berdasarkan parameter query
         controller.fetchSearchNews({
             slug: category,
-            author: author === null ? author : Number(author),
-            title: search,
-            tag: tag,
-            page: page === null ? 1 : Number(page)
+            author: author === null ? author : Number(author), // Jika author ada, konversi menjadi nomor
+            title: search, // Judul pencarian
+            tag: tag, // Tag pencarian
+            page: page === null ? 1 : Number(page) // Menentukan halaman yang ditampilkan
         });
-    }, [controller.applicationDispatch, category, author, search, tag, page, location.search]);
+    }, [controller.applicationDispatch, category, author, search, tag, page, location.search]); // Dependensi untuk memanggil fetchSearchNews saat ada perubahan parameter
 
     const handleNextPage = (): number => {
-        return controller.searchedNews.data.page + 1
+        return controller.searchedNews.data.page + 1; // Menentukan halaman berikutnya
     }
 
     const handleScroll = useCallback(() => {
+        // Menangani infinite scroll ketika pengguna mencapai bagian bawah halaman
         if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 50 && !controller.searchedNews.isLoading) {
             if (controller.searchedNews.isFulfilled && controller.searchedNews.data.page <= controller.searchedNews.data.total) {
                 controller.fetchSearchNews({
@@ -40,20 +41,21 @@ const SearchPage: React.FC = () => {
                     author: author === null ? author : Number(author),
                     title: search,
                     tag: tag,
-                    page: Number(handleNextPage)
+                    page: Number(handleNextPage) // Memuat data untuk halaman berikutnya
                 })
             }
         }
     }, [])
 
     useEffect(() => {
+        // Menambahkan event listener untuk scroll
         window.addEventListener("scroll", handleScroll)
-        return () => window.removeEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll); // Menghapus event listener saat komponen dibersihkan
     }, [controller.applicationDispatch]);
 
     // const handlePageChange = () => {
     //     if (controller.searchedNews.data.next_url) {
-    //         navigate(controller.searchedNews.data.next_url);
+    //         navigate(controller.searchedNews.data.next_url); // Navigasi ke halaman berikutnya (jika ada)
     //     }
     // }
 
@@ -82,7 +84,7 @@ const SearchPage: React.FC = () => {
                 ) : null}
                 {/* <Pagination currentPage={controller.searchedNews.data.page} totalPages={controller.searchedNews.data.total} onPageChange={handlePageChange} /> */}
             </div>
-        ) : (<div></div>)
+        ) : (<div></div>) // Menampilkan loading atau kosong jika data belum terisi
     );
 };
 
